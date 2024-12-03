@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --white0: #ffffff;
+  --white1: #fafafa;
+  --white2: #f0f0f0;
+  --black0: #444444;
+  --black1: #333333;
+  --gray: #ddd;
+  --yellow0: rgb(243, 243, 179);
+  --lightblue: #d8e7f8;
+  --lightgray: #e0e0e0;
+  --lightpurple: rgb(232, 232, 247);
+  --darkshadow: rgba(20, 20, 20, 0.1);
+}
+
+/***************************************************************************/
+/***********          NORMALIZE                    *************************/
+/***************************************************************************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--black1);
+  background-color: var(--white0);
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--lightgray);
+}
+
+th {
+  background-color: var(--lightblue);
+  font-weight: bold;
+  border: 1px solid #e0e0e0;
+  padding: 4px 8px;
+  text-align: left;
+}
+
+td {
+  padding: 4px 8px;
+  border: 1px solid #e0e0e0;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+/***************************************************************************/
+/***********     STANDARD CLASSES                  *************************/
+/***************************************************************************/
+
+.flex,
+.flexcol {
+  display: flex;
+}
+.flexcol {
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.reminder-row {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+}
+
+/***************************************************************************/
+/***********             CUSTOM CLASSES                 ********************/
+/***************************************************************************/
+
+.a4 {
+  width: 210mm;
+  padding: 20px;
+  background: var(--white0);
+  box-shadow: 0 4px 8px var(--darkshadow);
+  border: 1px solid var(--gray);
+  overflow: hidden;
+}
+
+.reminder-logo > img {
+  width: 50px;
+  height: auto;
+}
+
+.reminder-header {
+  justify-content: space-between;
+  background-color: var(--yellow0);
+  font-size: 0.9rem;
+}
+
+.reminder-table-course-info {
+  width: 100%;
+}
+
+.reminder-table-course-info * {
+  font-size: 0.8rem;
+}
+
+.reminder-subheader {
+  background-color: var(--gray);
+}
+
+.reminder-subtitle {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.reminder-table-language-focus {
+  font-weight: bold;
+  background-color: var(--lightblue);
+}
+
+.reminder-language-focus {
+  font-weight: normal;
+}
+
+.wrapper-vocab > h4 {
+  margin-left: 12px;
+}
+
+.reminder-vocab-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 2px rgba(133, 133, 133, 0.1);
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card img {
+  width: 100%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.card-text {
+  height: 20%;
+}
+
+.card .card-title {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.card .card-subtitle {
+  font-size: 0.75rem;
+  color: gray;
+}
+
+.overlay-print {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+.overlay-print > button {
+  width: 80px;
+  height: 34px;
+  border: none;
+  background-color: gray;
+  opacity: 0.3;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/***************************************************************************/
+/***********       PAGE BREAK PROPERTIES           *************************/
+/***************************************************************************/
+tr {
+  page-break-inside: avoid; /* Ensure rows do not break */
+}
+
+.cell {
+  break-inside: avoid; /* Prevent breaking inside a card */
+  page-break-inside: avoid; /* Prevent breaking inside a card */
+}
+
+.reminder-vocab-container > .cell:nth-child(3n) {
+  page-break-after: auto; /* break at the 3rd card */
+}
+
+.break {
+  page-break-before: auto; /* For sections needing a new page */
+  page-break-inside: avoid; /* Prevent splitting the specific element */
+}
+
+/***************************************************************************/
+/***********         RESPONSIVE MEDIA QUERIES     *************************/
+/***************************************************************************/
+
+@media print {
+  body {
+    margin: 0;
+    background-color: white;
+  }
+  .a4 {
+    width: 210mm;
+    padding: 5px;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+  }
+  .overlay-print {
+    display: none;
+  }
+}
