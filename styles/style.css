@@ -217,21 +217,25 @@ ul {
 /***********       PAGE BREAK PROPERTIES           *************************/
 /***************************************************************************/
 tr {
+  break-inside: avoid;
   page-break-inside: avoid; /* Ensure rows do not break */
 }
 
 .cell {
   break-inside: avoid; /* Prevent breaking inside a card */
-  page-break-inside: avoid; /* Prevent breaking inside a card */
+  page-break-inside: avoid;
 }
 
 .reminder-vocab-container > .cell:nth-child(3n) {
-  page-break-after: auto; /* break at the 3rd card */
+  break-after: auto;  /* break at the 3rd card */
+  page-break-after: auto; 
 }
 
 .break {
-  page-break-before: auto; /* For sections needing a new page */
-  page-break-inside: avoid; /* Prevent splitting the specific element */
+  break-before: auto; /* For sections needing a new page */
+  page-break-before: auto; 
+  break-inside: avoid; /* Prevent splitting the specific element */
+  page-break-inside: avoid; 
 }
 
 /***************************************************************************/
